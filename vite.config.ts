@@ -1,5 +1,5 @@
-import { defineConfig } from "vite";
 import preact from "@preact/preset-vite";
+import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,7 +10,7 @@ export default defineConfig({
   clearScreen: false,
   // tauri expects a fixed port, fail if that port is not available
   server: {
-    port: 1420,
+    port: 3000,
     strictPort: true,
   },
   // to make use of `TAURI_DEBUG` and other env variables
