@@ -7,6 +7,7 @@ specifiers:
   '@tauri-apps/cli': ^1.1.0
   '@types/node': ^18.7.14
   cmdk: ^0.1.20
+  next-themes: ^0.2.1
   preact: ^10.10.1
   sass: ^1.56.1
   typescript: ^4.6.4
@@ -15,6 +16,7 @@ specifiers:
 dependencies:
   '@tauri-apps/api': 1.2.0
   cmdk: 0.1.20
+  next-themes: 0.2.1
   preact: 10.11.3
 
 devDependencies:
@@ -1159,6 +1161,14 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
     dev: true
+
+  /next-themes/0.2.1:
+    resolution: {integrity: sha512-B+AKNfYNIzh0vqQQKqQItTS8evEouKD7H5Hj3kmuPERwddR2TxvDSFZuTj6T7Jfn1oyeUyJMydPl1Bkxkh0W7A==}
+    peerDependencies:
+      next: '*'
+      react: '*'
+      react-dom: '*'
+    dev: false
 
   /node-releases/2.0.6:
     resolution: {integrity: sha512-PiVXnNuFm5+iYkLBNeq5211hvO38y63T0i2KKh2KnUs3RpzJ+JtODFjkD8yjLwnDkTYF1eKXheUwdssR+NRZdg==}
