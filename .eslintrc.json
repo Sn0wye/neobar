@@ -1,0 +1,7 @@
+{
+  "extends": "@sn0wye/eslint-config/react",
+  "rules": {
+    "tailwindcss/no-custom-classname": "off",
+    "react/no-unknown-property": "off"
+  }
+}

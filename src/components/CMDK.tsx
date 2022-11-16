@@ -2,6 +2,7 @@ import { Command } from 'cmdk';
 import { useTheme } from 'next-themes';
 import { ComponentChildren } from 'preact';
 import { useCallback, useRef, useState } from 'preact/hooks';
+
 import {
   ContactIcon,
   DocsIcon,
@@ -13,14 +14,25 @@ import {
 } from './Icons';
 
 export function CMDK() {
+  // const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
   const [inputValue, setInputValue] = useState('');
-  const { theme, setTheme } = useTheme();
-  console.log(theme);
 
   const [pages, setPages] = useState<string[]>(['home']);
   const activePage = pages[pages.length - 1];
   const isHome = activePage === 'home';
+
+  // Toggle the menu when ⌘K is pressed
+  // useEffect(() => {
+  //   const down = (e: KeyboardEvent) => {
+  //     if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+  //       setOpen(open => !open);
+  //     }
+  //   };
+
+  //   document.addEventListener('keydown', down);
+  //   return () => document.removeEventListener('keydown', down);
+  // }, []);
 
   const popPage = useCallback(() => {
     setPages(pages => {
@@ -30,19 +42,19 @@ export function CMDK() {
     });
   }, []);
 
-  const onKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      if (isHome || inputValue.length) {
-        return;
-      }
+  // const onKeyDown = useCallback(
+  //   (e: KeyboardEvent) => {
+  //     if (isHome || inputValue.length) {
+  //       return;
+  //     }
 
-      if (e.key === 'Backspace') {
-        e.preventDefault();
-        popPage();
-      }
-    },
-    [inputValue.length, isHome, popPage]
-  );
+  //     if (e.key === 'Backspace') {
+  //       e.preventDefault();
+  //       popPage();
+  //     }
+  //   },
+  //   [inputValue.length, isHome, popPage]
+  // );
 
   function bounce() {
     if (ref.current) {
