@@ -135,3 +135,19 @@ export function ContactIcon() {
     </svg>
   );
 }
+
+export const ThemeIcon = () => {
+  return (
+    <svg width='1em' height='1em' viewBox='0 0 48 48'>
+      <g
+        fill='none'
+        stroke='currentColor'
+        strokeLinejoin='round'
+        strokeWidth='4'
+      >
+        <rect width='36' height='28' x='6' y='6' rx='3'></rect>
+        <path strokeLinecap='round' d='M14 42h20m-10-8v8'></path>
+      </g>
+    </svg>
+  );
+};
