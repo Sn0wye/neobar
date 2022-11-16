@@ -105,7 +105,7 @@ a {
   --blue12: hsl(211, 100%, 15%);
 }
 
-.dark {
+[data-theme='dark'] {
   --app-bg: var(--gray1);
 
   --lowContrast: #000000;
