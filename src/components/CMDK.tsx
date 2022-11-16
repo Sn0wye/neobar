@@ -1,4 +1,5 @@
 import { Command } from 'cmdk';
+import { useTheme } from 'next-themes';
 import { ComponentChildren } from 'preact';
 import { useCallback, useRef, useState } from 'preact/hooks';
 import {
@@ -7,12 +8,15 @@ import {
   FeedbackIcon,
   PlusIcon,
   ProjectsIcon,
-  TeamsIcon
+  TeamsIcon,
+  ThemeIcon
 } from './Icons';
 
 export function CMDK() {
   const ref = useRef<HTMLDivElement | null>(null);
   const [inputValue, setInputValue] = useState('');
+  const { theme, setTheme } = useTheme();
+  console.log(theme);
 
   const [pages, setPages] = useState<string[]>(['home']);
   const activePage = pages[pages.length - 1];
@@ -97,6 +101,7 @@ export function CMDK() {
             <Home searchProjects={() => setPages([...pages, 'projects'])} />
           )}
           {activePage === 'projects' && <Projects />}
+          {activePage === 'general' && <General />}
         </Command.List>
       </Command>
     </div>
@@ -104,6 +109,8 @@ export function CMDK() {
 }
 
 function Home({ searchProjects }: { searchProjects: Function }) {
+  const { theme, setTheme } = useTheme();
+
   return (
     <>
       <Command.Group heading='Projects'>
@@ -129,6 +136,17 @@ function Home({ searchProjects }: { searchProjects: Function }) {
         <Item>
           <PlusIcon />
           Create New Team...
+        </Item>
+      </Command.Group>
+      <Command.Group heading='General'>
+        <Item
+          shortcut='T'
+          onSelect={() => {
+            setTheme(theme === 'light' ? 'dark' : 'light');
+          }}
+        >
+          <ThemeIcon />
+          Change Theme
         </Item>
       </Command.Group>
       <Command.Group heading='Help'>
@@ -158,6 +176,14 @@ function Projects() {
       <Item>Project 4</Item>
       <Item>Project 5</Item>
       <Item>Project 6</Item>
+    </>
+  );
+}
+
+function General() {
+  return (
+    <>
+      <Item>Toggle Theme</Item>
     </>
   );
 }
